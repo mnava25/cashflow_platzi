@@ -1,8 +1,20 @@
-<script setup></script>
-
 <template>
-  <div class="modal"></div>
+  <div class="modal">
+    <div class="head">
+      <p>Nuevo movimiento</p>
+      <img @click="close" src="@/assets/close-icon.svg" alt="cerrar" />
+    </div>
+    <div class="body">
+      <slot></slot>
+    </div>
+  </div>
 </template>
+<script setup>
+import { defineEmits } from "vue";
+
+const emit = defineEmits(["close"]);
+const close = () => emit("close");
+</script>
 
 <style scoped>
 .modal {
